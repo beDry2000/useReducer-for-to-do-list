@@ -1,12 +1,13 @@
 import { useReducer, useRef } from 'react';
 import reducer, {initState} from './reducer';
 import {setJob, addJob, delJob} from './action'
+import logger from './logger';
 
 
 
 function App() {
 
-  const [tasks, dispatch] = useReducer(reducer, initState);
+  const [tasks, dispatch] = useReducer(logger(reducer), initState);
   const { job, jobs } = tasks;
 
   const inputRef = useRef();
